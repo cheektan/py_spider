@@ -18,7 +18,7 @@ opener.addheaders = [
 urllib.request.install_opener(opener)
 
 url = "https://wallhaven.cc/search?categories=110&purity=110&atleast=1920x1080&ratios=16x9&sorting=favorites&order=desc"  # 打开的主网站
-keyword = ".favorites"
+keyword = "favorites"
 driver.get(url)
 
 WebDriverWait(driver, 10).until(
@@ -32,7 +32,7 @@ time.sleep(1)
 
 imgs = driver.find_elements_by_class_name("preview")  # 获取子页面数组
 count = 0
-path = os.path.join(keyword)
+path = os.path.join("spider data", keyword)
 os.mkdir(path)
 
 for img in imgs:

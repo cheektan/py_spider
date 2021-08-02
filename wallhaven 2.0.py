@@ -9,7 +9,6 @@ import wget
 import urllib.request
 import path
 
-# PATh = r"C:\Users\12158\Downloads\chromedriver_win32\chromedriver.exe"
 driver = webdriver.Chrome(path.PATh)
 
 # UA
@@ -20,7 +19,7 @@ urllib.request.install_opener(opener)
 
 # 打开的主网站
 url = "https://wallhaven.cc/search?categories=111&purity=110&ratios=16x9&topRange=1M&sorting=hot&order=desc"
-keyword = ".hot"
+keyword = "hot"
 driver.get(url)
 
 WebDriverWait(driver, 10).until(
@@ -34,7 +33,7 @@ time.sleep(1)
 
 imgs = driver.find_elements_by_class_name("loaded")  # 获取子页面数组
 count = 0
-path = os.path.join(keyword)
+path = os.path.join("spider data", keyword)
 os.mkdir(path)
 
 for img in imgs:
