@@ -7,9 +7,9 @@ import time
 import os
 import wget
 import urllib.request
+import path
 
-PATh = r"C:\Users\12158\Downloads\chromedriver_win32\chromedriver.exe"
-driver = webdriver.Chrome(PATh)
+driver = webdriver.Chrome(path.PATh)
 
 # UA
 opener = urllib.request.build_opener()
@@ -18,7 +18,7 @@ opener.addheaders = [
 urllib.request.install_opener(opener)
 
 url = "https://wallhaven.cc/search?categories=110&purity=110&atleast=1920x1080&ratios=16x9&sorting=favorites&order=desc"  # 打开的主网站
-keyword = "favorites"
+keyword = ".favorites"
 driver.get(url)
 
 WebDriverWait(driver, 10).until(

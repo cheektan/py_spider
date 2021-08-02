@@ -6,9 +6,10 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import os
 import wget
+import path
 
-PATh = r"C:\Users\12158\Downloads\chromedriver_win32\chromedriver.exe"
-driver = webdriver.Chrome(PATh)
+driver = webdriver.Chrome(path.PATh)
+
 url = "https://wallhaven.cc/toplist"  # 打开的主网站
 driver.get(url)
 # toplist = driver.find_element_by_class_name("toplist")

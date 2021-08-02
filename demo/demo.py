@@ -4,9 +4,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import path
 
-PATh = r"C:\Users\12158\Downloads\chromedriver_win32\chromedriver.exe"
-driver = webdriver.Chrome(PATh)
+driver = webdriver.Chrome(path.PATh)
 
 driver.get("https://search.bilibili.com/?from_source=webtop_search")
 # print(driver.title)

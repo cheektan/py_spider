@@ -6,9 +6,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import wget
+import path
 
-PATh = r"C:\Users\12158\Downloads\chromedriver_win32\chromedriver.exe"
-driver = webdriver.Chrome(PATh)
+driver = webdriver.Chrome(path.PATh)
 
 driver.get("https://www.instagram.com/")
 username = WebDriverWait(driver, 10).until(
@@ -18,8 +18,8 @@ password = WebDriverWait(driver, 10).until(
 login = driver.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]')
 username.clear()
 password.clear()
-username.send_keys("cheek_1215")
-password.send_keys("ig18949455133")
+username.send_keys(path.username)
+password.send_keys(path.password)
 login.click()
 
 search = WebDriverWait(driver, 10).until(
