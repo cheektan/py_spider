@@ -50,3 +50,5 @@ for img in imgs:
         wget.download(url_rep1, photo)
     # print(url_rep)
     count += 1
+
+driver.quit()
