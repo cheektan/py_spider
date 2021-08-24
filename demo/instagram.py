@@ -55,16 +55,14 @@ if os.path.isdir(path):
 os.mkdir(path)
 
 count = 0
-num = 0
 for img in imgs:
     save_as = os.path.join(path, keyword + '%d.jpg' % count)
     # print(img.get_attribute("src"))
-    num += 1
     try:
         wget.download(img.get_attribute("src"), save_as)
     except Exception as e:
         print("发生错误", e, '\n', img.get_attribute("src"))
         continue
     count += 1
-print("捕获数：", num)
+print("\n捕获数：", count)
 driver.quit()

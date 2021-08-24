@@ -19,8 +19,8 @@ opener.addheaders = [
 urllib.request.install_opener(opener)
 
 # 打开的主网站
-url = "https://wallhaven.cc/search?categories=110&purity=100&atleast=1920x1080&ratios=16x9&sorting=hot&order=desc"
-keyword = "hot"
+url = "https://wallhaven.cc/search?categories=110&purity=100&atleast=1920x1080&ratios=16x9&topRange=1M&sorting=toplist&order=desc"
+keyword = "toplist"
 driver.get(url)
 
 WebDriverWait(driver, 10).until(
@@ -30,7 +30,7 @@ for i in range(5):  # 页面下滑
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     time.sleep(2)
 driver.execute_script("window.scrollTo(0, 0);")
-time.sleep(2)
+# time.sleep(2)
 
 imgs = driver.find_elements_by_class_name("loaded")  # 获取子页面数组
 count = 0
@@ -53,8 +53,13 @@ for img in imgs:
         wget.download(url_rep, photo)
     except IOError:
         url_rep1 = url_rep.replace("jpg", "png")
-        wget.download(url_rep1, photo)
+        # wget.download(url_rep1, photo)
+        try:
+            wget.download(url_rep1, photo)
+        except Exception as e:
+            print("发生错误", e, '\n', url_rep1)
+            continue
     # print(url_rep)
     count += 1
-
+print("\n捕获数：", count)
 driver.quit()
